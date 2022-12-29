@@ -2,7 +2,7 @@
 How to use sysbench to calc qps of mysql
 
 
-Step 1: Install mysql on vps
+## Step 1: Install mysql on vps
 ```
 Host: 1.2.3.4
 Port: 3306
@@ -10,7 +10,7 @@ User: root
 Password: my-secret-pw
 Database: test
 ```
-Step 2: Install sysbench on mac os
+## Step 2: Install sysbench on mac os
 ```
 brew install sysbench
 ```
@@ -24,7 +24,7 @@ when install, see carefully the logs to get the path of sysbench on macos
 => /usr/local/Cellar/sysbench/1.0.20_3 is the path of sysbench
 
 
-Step 2: Prepare data
+## Step 3: Prepare data
 ```
 sysbench --db-driver=mysql --mysql-user=root --mysql_password=my-secret-pw --mysql-db=test --mysql-host=1.2.3.4 --mysql-port=3306 --tables=16 --table-size=10000 --threads=4 --time=200 --events=0 --report-interval=1 “/usr/local/Cellar/sysbench/1.0.20_3/share/sysbench/oltp_read_write.lua” prepare
 ```
@@ -45,7 +45,7 @@ In the command above:
 ```
 
 
-Step 3: Run benchmark to get QPS (query per second)
+## Step 4: Run benchmark to get QPS (query per second)
 ```
 sysbench --db-driver=mysql --mysql-user=root --mysql_password=my-secret-pw --mysql-db=test --mysql-host=1.2.3.4 --mysql-port=3306 --tables=16 --table-size=10000 --threads=4 --time=200 --events=0 --report-interval=1 “/usr/local/Cellar/sysbench/1.0.20_3/share/sysbench/oltp_read_write.lua” run
 ```
